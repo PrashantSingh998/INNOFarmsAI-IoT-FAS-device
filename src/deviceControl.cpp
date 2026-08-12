@@ -78,13 +78,14 @@ void initDevices() {
 
 
 void showStartupLogo() {
-  tft.fillScreen(TFT_BLACK);
+    tft.fillScreen(TFT_BLACK);
 
   int16_t x = (SCREEN_WIDTH - LOGO_WIDTH) / 2;
-  int16_t y = (SCREEN_HEIGHT - LOGO_HEIGHT) / 2;
+  int16_t y = 20;   // move logo slightly upward
 
   tft.setSwapBytes(true);
 
+  // Company logo
   tft.pushImage(
     x,
     y,
@@ -92,6 +93,24 @@ void showStartupLogo() {
     LOGO_HEIGHT,
     innofarms_logo
   );
+
+  // Text below logo
+  tft.setTextDatum(MC_DATUM);
+  tft.setTextColor(BRAND_GREEN, TFT_BLACK);
+
+  tft.drawString(
+    "Farm Intelligence & Automation Pro.",
+    SCREEN_WIDTH / 2,
+    285,
+    4
+  );
+  tft.drawString(
+    "Farm Intelligence & Automation Pro.",
+    (SCREEN_WIDTH / 2) + 1,
+    285,
+    4
+ );
+
   delay(5000);
 }
 

@@ -115,7 +115,11 @@ void loop() {
     // MQTT message processing
     mqttLoop();
     httploop();
-    MDNS.update();  
+    MDNS.update();
+    if (millis() - keepaliveMillis >= 60000UL) {
+        keepaliveMillis = millis();
+        publishState(true);
+    }
 
   }
 
