@@ -78,25 +78,20 @@ void initDevices() {
 
 
 void showStartupLogo() {
-  tft.fillScreen(BRAND_BG);
-  tft.drawRoundRect(55, 42, 370, 230, 20, BRAND_GREEN_DARK);
-  tft.drawRoundRect(60, 47, 360, 220, 18, BRAND_GREEN);
+  tft.fillScreen(TFT_BLACK);
 
-  const int16_t cx = SCREEN_WIDTH / 2;
-  tft.drawRoundRect(cx - 42, 67, 84, 72, 12, BRAND_GREEN);
-  tft.drawLine(cx, 75, cx, 130, BRAND_GREEN);
-  tft.drawLine(cx, 84, cx - 27, 101, BRAND_GREEN);
-  tft.drawLine(cx, 84, cx + 27, 101, BRAND_GREEN);
-  tft.fillCircle(cx, 69, 5, BRAND_GREEN);
+  int16_t x = (SCREEN_WIDTH - LOGO_WIDTH) / 2;
+  int16_t y = (SCREEN_HEIGHT - LOGO_HEIGHT) / 2;
 
-  tft.setTextDatum(MC_DATUM);
-  tft.setTextColor(BRAND_WHITE, BRAND_BG);
-  tft.drawString("INNOFarms.AI", cx, 174, 4);
-  tft.setTextColor(BRAND_GREEN, BRAND_BG);
-  tft.drawString("Farm Intelligence & Automation", cx, 210, 2);
-  tft.setTextColor(BRAND_MUTED, BRAND_BG);
-  tft.drawString("Starting system...", cx, 244, 1);
+  tft.setSwapBytes(true);
 
+  tft.pushImage(
+    x,
+    y,
+    LOGO_WIDTH,
+    LOGO_HEIGHT,
+    innofarms_logo
+  );
   delay(5000);
 }
 
