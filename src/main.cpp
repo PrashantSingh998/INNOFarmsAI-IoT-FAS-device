@@ -47,7 +47,7 @@ void setup() {
   connect_to_wifi(WIFI_SSID, WIFI_PASSWORD,false);
   Serial.println("✅ Device Initialization Complete");  
   // OTA check (optional)
-    checkAndUpdateFirmware(String("https://device-ota-bucket.s3.ap-south-1.amazonaws.com/Climate_Control/IFFNC1200000001/meta.json"), Device_Version);
+    checkAndUpdateFirmware(String("https://device-ota-bucket.s3.ap-south-1.amazonaws.com/Display/IFFAS1210000001/meta.json"), Device_Version);
     initroutes();
     initMqtt(MQTT_BROKER, MQTT_PORT);
     reconnect(MQTT_SUBTOPIC, MQTT_USERNAME, MQTT_PASSWORD);
